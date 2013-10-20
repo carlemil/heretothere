@@ -11,13 +11,13 @@
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
         
     <application
-        android:name="se.kjellstrand.here2there.Here2ThereApplication"
+        android:name="se.kjellstrand.here2there.app.Here2ThereApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="se.kjellstrand.here2there.MainActivity"
+            android:name="se.kjellstrand.here2there.activitys.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

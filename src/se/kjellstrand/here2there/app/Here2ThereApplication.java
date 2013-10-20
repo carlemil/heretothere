@@ -1,5 +1,6 @@
-package se.kjellstrand.here2there;
+package se.kjellstrand.here2there.app;
 
+import se.kjellstrand.here2there.net.Here2ThereApi;
 import android.app.Application;
 
 import com.android.volley.RequestQueue;

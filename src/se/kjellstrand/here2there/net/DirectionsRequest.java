@@ -1,8 +1,10 @@
-package se.kjellstrand.here2there;
+package se.kjellstrand.here2there.net;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
+import se.kjellstrand.here2there.R;
+import se.kjellstrand.here2there.data.Directions;
 import android.app.Activity;
 import android.util.Log;
 
@@ -41,26 +43,15 @@ public class DirectionsRequest extends Request<Directions> {
         return Response.success(demoResponse, getCacheEntry());
     }
 
-    /**
-     * http://maps.googleapis.com/maps/api/directions/json?origin=Toronto&
-     * destination=Montreal&sensor=false&mode=walking
-     * 
-     * @param destination
-     * @param origin
-     * @throws UnsupportedEncodingException
-     */
     private static String getUrl(Activity activity, String origin, String destination)
             throws UnsupportedEncodingException {
         StringBuilder url = new StringBuilder();
         url.append(activity.getResources().getString(R.string.api_directions_url));
-        url.append("?origin=");
-        url.append(URLEncoder.encode(origin, "UTF-8"));
-        url.append("&destination=");
-        url.append(URLEncoder.encode(destination, "UTF-8"));
+        url.append("?origin=").append(URLEncoder.encode(origin, "UTF-8"));
+        url.append("&destination=").append(URLEncoder.encode(destination, "UTF-8"));
         url.append("&sensor=false");
         url.append("&mode=walking");
 
-        Log.d(TAG, "Url: " + url.toString());
         return url.toString();
     }
 }

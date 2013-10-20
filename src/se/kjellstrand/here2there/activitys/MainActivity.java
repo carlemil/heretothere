@@ -1,7 +1,10 @@
-package se.kjellstrand.here2there;
+package se.kjellstrand.here2there.activitys;
 
 import java.io.UnsupportedEncodingException;
 
+import se.kjellstrand.here2there.R;
+import se.kjellstrand.here2there.app.Here2ThereApplication;
+import se.kjellstrand.here2there.data.Directions;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
