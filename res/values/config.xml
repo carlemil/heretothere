@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Urls for the different api calls -->
+    <string name="api_directions_url">http://maps.googleapis.com/maps/api/directions/json</string>
+
+</resources>

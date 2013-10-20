@@ -8,9 +8,48 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <TextView
+    <Button
+        android:id="@+id/sendDirectionsRequestButton"
+        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Get directions" />
+
+    <TextView
+        android:id="@+id/fromDirectionTextViewLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/sendDirectionsRequestButton"
+        android:layout_below="@+id/sendDirectionsRequestButton"
+        android:text="From:" />
+
+    <TextView
+        android:id="@+id/fromDirectionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/fromDirectionTextViewLabel"
+        android:layout_alignBottom="@+id/fromDirectionTextViewLabel"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@+id/fromDirectionTextViewLabel"
+        android:text="Malmö C" />
+
+    <TextView
+        android:id="@+id/toDirectionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/toDirectionTextViewLabel"
+        android:layout_alignBottom="@+id/toDirectionTextViewLabel"
+        android:layout_alignLeft="@+id/fromDirectionTextView"
+        android:text="Lund C" />
+
+    <TextView
+        android:id="@+id/toDirectionTextViewLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/fromDirectionTextViewLabel"
+        android:layout_below="@+id/fromDirectionTextViewLabel"
+        android:text="To:" />
 
 </RelativeLayout>
