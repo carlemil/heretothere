@@ -8,12 +8,12 @@ public class Coord {
         return lat;
     }
 
-    public void setLat(Double lat) {
-        this.lat = lat;
-    }
-
     public Double getLng() {
         return lng;
+    }
+
+    public void setLat(Double lat) {
+        this.lat = lat;
     }
 
     public void setLng(Double lng) {

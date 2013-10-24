@@ -8,12 +8,12 @@ public class TextValue {
         return text;
     }
 
-    public void setText(String text) {
-        this.text = text;
-    }
-
     public Integer getValue() {
         return value;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 
     public void setValue(Integer value) {

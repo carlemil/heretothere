@@ -8,12 +8,12 @@ public class Bounds {
         return northeast;
     }
 
-    public void setNortheast(Coord northeast) {
-        this.northeast = northeast;
-    }
-
     public Coord getSouthwest() {
         return southwest;
+    }
+
+    public void setNortheast(Coord northeast) {
+        this.northeast = northeast;
     }
 
     public void setSouthwest(Coord southwest) {
