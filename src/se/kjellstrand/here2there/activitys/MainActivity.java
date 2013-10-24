@@ -6,7 +6,9 @@ import se.kjellstrand.here2there.R;
 import se.kjellstrand.here2there.app.Here2ThereApplication;
 import se.kjellstrand.here2there.data.Directions;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -16,13 +18,18 @@ import android.widget.TextView;
 import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
 import com.android.volley.VolleyError;
+import com.google.android.gms.common.GooglePlayServicesUtil;
 
 public class MainActivity extends Activity implements Listener<Directions>, ErrorListener {
+
+    private static final String TAG = MainActivity.class.getCanonicalName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        GooglePlayServicesUtil.isGooglePlayServicesAvailable(getApplicationContext());
 
         Button sendDirButton = (Button) findViewById(R.id.sendDirectionsRequestButton);
         final MainActivity this_ = this;
@@ -58,7 +65,9 @@ public class MainActivity extends Activity implements Listener<Directions>, Erro
 
     @Override
     public void onResponse(Directions arg0) {
-        // TODO Auto-generated method stub
+        Log.d(TAG, "got response");
+        Intent intent = new Intent(this, MapActivity.class);
+        startActivity(intent);
 
     }
 
