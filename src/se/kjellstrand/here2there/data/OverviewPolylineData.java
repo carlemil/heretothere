@@ -1,6 +1,6 @@
 package se.kjellstrand.here2there.data;
 
-public class PolyLine {
+public class OverviewPolylineData {
     String points;
 
     public String getPoints() {

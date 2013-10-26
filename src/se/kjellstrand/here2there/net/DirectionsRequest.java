@@ -4,7 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 import se.kjellstrand.here2there.R;
-import se.kjellstrand.here2there.data.Directions;
+import se.kjellstrand.here2there.data.DirectionsData;
 import android.app.Activity;
 import android.util.Log;
 
@@ -16,30 +16,30 @@ import com.google.gson.Gson;
 /**
  * Created by erbsman on 19/10/13.
  */
-public class DirectionsRequest extends Request<Directions> {
+public class DirectionsRequest extends Request<DirectionsData> {
 
     private static final String TAG = DirectionsRequest.class.getCanonicalName();
-    private final Response.Listener<Directions> mListener;
+    private final Response.Listener<DirectionsData> mListener;
 
     private final Gson mGson = new Gson();
 
     public DirectionsRequest(Activity activity, String origin, String destination,
-            Response.Listener<Directions> listener, Response.ErrorListener errorListener)
+            Response.Listener<DirectionsData> listener, Response.ErrorListener errorListener)
             throws UnsupportedEncodingException {
         super(Method.GET, getUrl(activity, origin, destination), errorListener);
         mListener = listener;
     }
 
     @Override
-    protected void deliverResponse(Directions response) {
+    protected void deliverResponse(DirectionsData response) {
         mListener.onResponse(response);
     }
 
     @Override
-    protected Response<Directions> parseNetworkResponse(NetworkResponse response) {
+    protected Response<DirectionsData> parseNetworkResponse(NetworkResponse response) {
         String jsonString = new String(response.data);
         Log.d(TAG, "jsonString: " + jsonString);
-        Directions demoResponse = mGson.fromJson(jsonString, Directions.class);
+        DirectionsData demoResponse = mGson.fromJson(jsonString, DirectionsData.class);
         return Response.success(demoResponse, getCacheEntry());
     }
 

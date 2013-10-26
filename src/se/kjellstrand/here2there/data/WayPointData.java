@@ -1,15 +1,15 @@
 package se.kjellstrand.here2there.data;
 
-public class WayPoint {
-    Coord location;
+public class WayPointData {
+    CoordData location;
     Integer step_index;
     Double step_interpolation;
 
-    public Coord getLocation() {
+    public CoordData getLocation() {
         return location;
     }
 
-    public void setLocation(Coord location) {
+    public void setLocation(CoordData location) {
         this.location = location;
     }
 

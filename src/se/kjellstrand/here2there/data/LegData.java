@@ -1,20 +1,20 @@
 package se.kjellstrand.here2there.data;
 
-public class Leg {
-    TextValue distance;
-    TextValue duration;
+public class LegData {
+    TextValueData distance;
+    TextValueData duration;
     String end_address;
-    Coord end_location;
+    CoordData end_location;
     String start_address;
-    Coord start_location;
-    Step steps[];
-    WayPoint via_waypoint[];
+    CoordData start_location;
+    StepData steps[];
+    WayPointData via_waypoint[];
 
-    public TextValue getDistance() {
+    public TextValueData getDistance() {
         return distance;
     }
 
-    public TextValue getDuration() {
+    public TextValueData getDuration() {
         return duration;
     }
 
@@ -22,7 +22,7 @@ public class Leg {
         return end_address;
     }
 
-    public Coord getEnd_location() {
+    public CoordData getEnd_location() {
         return end_location;
     }
 
@@ -30,19 +30,19 @@ public class Leg {
         return start_address;
     }
 
-    public Coord getStart_location() {
+    public CoordData getStart_location() {
         return start_location;
     }
 
-    public Step[] getSteps() {
+    public StepData[] getSteps() {
         return steps;
     }
 
-    public void setDistance(TextValue distance) {
+    public void setDistance(TextValueData distance) {
         this.distance = distance;
     }
 
-    public void setDuration(TextValue duration) {
+    public void setDuration(TextValueData duration) {
         this.duration = duration;
     }
 
@@ -50,7 +50,7 @@ public class Leg {
         this.end_address = end_address;
     }
 
-    public void setEnd_location(Coord end_location) {
+    public void setEnd_location(CoordData end_location) {
         this.end_location = end_location;
     }
 
@@ -58,11 +58,11 @@ public class Leg {
         this.start_address = start_address;
     }
 
-    public void setStart_location(Coord start_location) {
+    public void setStart_location(CoordData start_location) {
         this.start_location = start_location;
     }
 
-    public void setSteps(Step[] steps) {
+    public void setSteps(StepData[] steps) {
         this.steps = steps;
     }
 }

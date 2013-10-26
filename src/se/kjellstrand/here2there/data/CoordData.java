@@ -1,6 +1,6 @@
 package se.kjellstrand.here2there.data;
 
-public class Coord {
+public class CoordData {
     Double lat;
     Double lng;
 

@@ -5,14 +5,14 @@ package se.kjellstrand.here2there.data;
  * 
  * 
  */
-public class Directions {
-    Route routes[];
+public class DirectionsData {
+    RouteData routes[];
 
-    public Route[] getRoutes() {
+    public RouteData[] getRoutes() {
         return routes;
     }
 
-    public void setRoutes(Route[] routes) {
+    public void setRoutes(RouteData[] routes) {
         this.routes = routes;
     }
 }

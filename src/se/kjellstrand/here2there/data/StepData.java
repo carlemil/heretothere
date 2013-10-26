@@ -1,23 +1,23 @@
 package se.kjellstrand.here2there.data;
 
-public class Step {
-    TextValue distance;
-    TextValue duration;
-    Coord end_location;
-    Coord start_location;
+public class StepData {
+    TextValueData distance;
+    TextValueData duration;
+    CoordData end_location;
+    CoordData start_location;
     String html_instructions;
-    PolyLine polyline;
+    PolylineData polyline;
     String travel_mode;
 
-    public TextValue getDistance() {
+    public TextValueData getDistance() {
         return distance;
     }
 
-    public TextValue getDuration() {
+    public TextValueData getDuration() {
         return duration;
     }
 
-    public Coord getEnd_location() {
+    public CoordData getEnd_location() {
         return end_location;
     }
 
@@ -25,11 +25,11 @@ public class Step {
         return html_instructions;
     }
 
-    public PolyLine getPolyline() {
+    public PolylineData getPolyline() {
         return polyline;
     }
 
-    public Coord getStart_location() {
+    public CoordData getStart_location() {
         return start_location;
     }
 
@@ -37,15 +37,15 @@ public class Step {
         return travel_mode;
     }
 
-    public void setDistance(TextValue distance) {
+    public void setDistance(TextValueData distance) {
         this.distance = distance;
     }
 
-    public void setDuration(TextValue duration) {
+    public void setDuration(TextValueData duration) {
         this.duration = duration;
     }
 
-    public void setEnd_location(Coord end_location) {
+    public void setEnd_location(CoordData end_location) {
         this.end_location = end_location;
     }
 
@@ -53,11 +53,11 @@ public class Step {
         this.html_instructions = html_instructions;
     }
 
-    public void setPolyline(PolyLine polyline) {
+    public void setPolyline(PolylineData polyline) {
         this.polyline = polyline;
     }
 
-    public void setStart_location(Coord start_location) {
+    public void setStart_location(CoordData start_location) {
         this.start_location = start_location;
     }
 

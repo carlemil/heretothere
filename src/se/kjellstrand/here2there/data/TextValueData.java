@@ -1,6 +1,6 @@
 package se.kjellstrand.here2there.data;
 
-public class TextValue {
+public class TextValueData {
     String text;
     Integer value;
 

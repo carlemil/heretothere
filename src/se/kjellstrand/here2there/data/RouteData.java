@@ -1,15 +1,15 @@
 package se.kjellstrand.here2there.data;
 
-public class Route {
-    Bounds bounds;
+public class RouteData {
+    BoundsData bounds;
     String copyrights;
-    Leg legs[];
-    OverviewPolyline overview_polyline;
+    LegData legs[];
+    OverviewPolylineData overview_polyline;
     String summary;
     String warnings[];
     Integer waypoint_order[];
 
-    public Bounds getBounds() {
+    public BoundsData getBounds() {
         return bounds;
     }
 
@@ -17,11 +17,11 @@ public class Route {
         return copyrights;
     }
 
-    public Leg[] getLegs() {
+    public LegData[] getLegs() {
         return legs;
     }
 
-    public OverviewPolyline getOverview_polyline() {
+    public OverviewPolylineData getOverview_polyline() {
         return overview_polyline;
     }
 
@@ -37,7 +37,7 @@ public class Route {
         return waypoint_order;
     }
 
-    public void setBounds(Bounds bounds) {
+    public void setBounds(BoundsData bounds) {
         this.bounds = bounds;
     }
 
@@ -45,11 +45,11 @@ public class Route {
         this.copyrights = copyrights;
     }
 
-    public void setLegs(Leg[] legs) {
+    public void setLegs(LegData[] legs) {
         this.legs = legs;
     }
 
-    public void setOverview_polyline(OverviewPolyline overview_polyline) {
+    public void setOverview_polyline(OverviewPolylineData overview_polyline) {
         this.overview_polyline = overview_polyline;
     }
 

@@ -4,7 +4,7 @@ import java.io.UnsupportedEncodingException;
 
 import se.kjellstrand.here2there.R;
 import se.kjellstrand.here2there.app.Here2ThereApplication;
-import se.kjellstrand.here2there.data.Directions;
+import se.kjellstrand.here2there.data.DirectionsData;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,7 +20,7 @@ import com.android.volley.Response.Listener;
 import com.android.volley.VolleyError;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 
-public class MainActivity extends Activity implements Listener<Directions>, ErrorListener {
+public class MainActivity extends Activity implements Listener<DirectionsData>, ErrorListener {
 
     private static final String TAG = MainActivity.class.getCanonicalName();
 
@@ -58,14 +58,18 @@ public class MainActivity extends Activity implements Listener<Directions>, Erro
     }
 
     @Override
-    public void onErrorResponse(VolleyError arg0) {
+    public void onErrorResponse(VolleyError volleyError) {
         // TODO Auto-generated method stub
-
+        if (volleyError != null && volleyError.networkResponse != null) {
+            Log.d(TAG, "Error response: " + volleyError.networkResponse.statusCode);
+        } else {
+            Log.d(TAG, "Empty error response.");
+        }
     }
 
     @Override
-    public void onResponse(Directions arg0) {
-        Log.d(TAG, "got response");
+    public void onResponse(DirectionsData arg0) {
+        Log.d(TAG, "Got response.");
         Intent intent = new Intent(this, MapActivity.class);
         startActivity(intent);
 
