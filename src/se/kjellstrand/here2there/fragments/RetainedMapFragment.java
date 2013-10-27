@@ -3,9 +3,9 @@ package se.kjellstrand.here2there.fragments;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
+import se.kjellstrand.here2there.R;
 import se.kjellstrand.here2there.app.Here2ThereApplication;
 import se.kjellstrand.here2there.data.DirectionsData;
-import se.kjellstrand.here2there.data.PolylineData;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -31,10 +31,10 @@ public class RetainedMapFragment extends MapFragment implements Listener<Directi
         setRetainInstance(true);
 
         Activity activity = getActivity();
-        String origin = "Malmö C";// ((TextView)
-                                  // activity.findViewById(R.id.fromDirectionTextView)).getText().toString();
-        String destination = "Malmö Värnhem";// ((TextView)
-                                             // activity.findViewById(R.id.toDirectionTextView)).getText().toString();
+        String origin = "Jayway, Hans Michelsensgatan 10, 211 20 Malmö, Sweden";// ((TextView)
+        // activity.findViewById(R.id.fromDirectionTextView)).getText().toString();
+        String destination = "Östra Förstadsgatan 13, 211 31 Malmö, Sweden";// ((TextView)
+        // activity.findViewById(R.id.toDirectionTextView)).getText().toString();
         try {
             Here2ThereApplication.get().getApi().getDirections(activity,
                     origin, destination, this, this);
@@ -57,12 +57,15 @@ public class RetainedMapFragment extends MapFragment implements Listener<Directi
     @Override
     public void onResponse(DirectionsData directions) {
         Log.d(TAG, "Got response.");
+        if (directions.getRoutes().length > 0) {
+            GoogleMap map = ((RetainedMapFragment)
+                    getFragmentManager().findFragmentById(R.id.retained_mapfragment_map)).getMap();
 
-        // drawPolyLine(directions.getRoutes()[0].getOverview_polyline().getPoints());
+            drawPolyLine(directions.getRoutes()[0].getOverview_polyline().getPointsList(), map);
+        }
     }
 
-    private void drawPolyLine(PolylineData polyline, GoogleMap map) {
-        List<LatLng> list = polyline.getPointsList();
+    private void drawPolyLine(List<LatLng> list, GoogleMap map) {
         LatLng last = null;
         for (int i = 0; i < list.size() - 1; i++) {
             LatLng src = list.get(i);
