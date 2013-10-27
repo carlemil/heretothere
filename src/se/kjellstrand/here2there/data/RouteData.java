@@ -4,7 +4,7 @@ public class RouteData {
     BoundsData bounds;
     String copyrights;
     LegData legs[];
-    OverviewPolylineData overview_polyline;
+    PolylineData overview_polyline;
     String summary;
     String warnings[];
     Integer waypoint_order[];
@@ -21,7 +21,7 @@ public class RouteData {
         return legs;
     }
 
-    public OverviewPolylineData getOverview_polyline() {
+    public PolylineData getOverview_polyline() {
         return overview_polyline;
     }
 
@@ -49,7 +49,7 @@ public class RouteData {
         this.legs = legs;
     }
 
-    public void setOverview_polyline(OverviewPolylineData overview_polyline) {
+    public void setOverview_polyline(PolylineData overview_polyline) {
         this.overview_polyline = overview_polyline;
     }
 

@@ -1,28 +1,24 @@
 package se.kjellstrand.here2there.activitys;
 
-import java.util.List;
-
 import se.kjellstrand.here2there.R;
-import se.kjellstrand.here2there.data.PolylineData;
+import se.kjellstrand.here2there.fragments.RetainedMapFragment;
 import android.app.Activity;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.Menu;
 
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Polyline;
-import com.google.android.gms.maps.model.PolylineOptions;
-
-// import com.google.android.gms.maps.FragmentActivity;
 
 public class MapActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.map_layout);
+        setContentView(R.layout.map_activity_layout);
+
+        GoogleMap map = ((RetainedMapFragment)
+                getFragmentManager().findFragmentById(R.id.retained_mapfragment_map))
+                        .getMap();
+        map.setMyLocationEnabled(true);
 
         /* final LatLng HAMBURG = new LatLng(53.558, 9.927); final LatLng KIEL =
          * new LatLng(53.551, 9.993); */
@@ -41,28 +37,17 @@ public class MapActivity extends Activity {
         // map.addMarker(new MarkerOptions().position(new LatLng(0,
         // 0)).title("Marker"));
 
-        GoogleMap map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
-                .getMap();
-
-        map.setMyLocationEnabled(true);
-
-        // drawPolyLine(list);
+        // GoogleMap map = ((RetainedMapFragment)
+        // getFragmentManager().findFragmentById(R.id.map))
+        // .getMap();
 
     }
 
-    private void drawPolyLine(PolylineData polyline, GoogleMap map) {
-        List<LatLng> list = polyline.getPointsList();
-        LatLng last = null;
-        for (int i = 0; i < list.size() - 1; i++) {
-            LatLng src = list.get(i);
-            LatLng dest = list.get(i + 1);
-            last = dest;
-            Log.d("latLng:", last.latitude + ", " + last.longitude);
-            Polyline line = map.addPolyline(new PolylineOptions().add(
-                    new LatLng(src.latitude, src.longitude), new LatLng(dest.latitude, dest.longitude))
-                    .width(2)
-                    .color(Color.BLUE));
-        }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
     }
 
 }
